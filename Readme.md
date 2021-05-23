@@ -1,3 +1,4 @@
+# Installation and Run
 
-npm install @material-ui/core
-npm install --save react-router-dom
+npm install - for installing dependencies
+npm start - start web app
