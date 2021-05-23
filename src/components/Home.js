@@ -99,19 +99,16 @@ export default class Home extends Component {
     }
   }
   handleapproveall() {
-    let arr = [];
+    let arr = [], reducedarr=this.state.jobs;
     for (let value of this.state.selected) {
       let curr_person = this.state.jobs.filter(function (person) {
         return person.earning_id === value;
       });
       curr_person[0].action = "approve";
       arr = arr.concat(curr_person);
-      this.setState({
-        jobs: this.state.jobs.filter(function (person) {
-          return person.earning_id !== value;
-        }),
-      });
+      reducedarr=reducedarr.filter(item => item.earning_id !== value);
     }
+    this.setState({jobs: reducedarr});
     console.log(arr);
     this.setState({ selected: [] });
     document
